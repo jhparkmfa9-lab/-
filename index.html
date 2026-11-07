@@ -160,6 +160,46 @@ footer{text-align:center;color:#9d93d6;font-size:11px;margin-top:40px;line-heigh
 @keyframes cheers{0%,100%{transform:rotate(-160deg)}50%{transform:rotate(-200deg)}}
 @keyframes fizz{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-22px)}}
 
+.scene .hat,.scene .flame,.scene .dovebird{transform-box:fill-box;transform-origin:50% 100%}
+/* hat tip (이승만) */
+.m-hattip .hat{animation:hatUp 2.4s steps(1) infinite}
+.m-hattip .armR{animation:hatArm 2.4s steps(1) infinite}
+.m-hattip .char{animation:bowSm 2.4s steps(1) infinite}
+@keyframes hatUp{0%,45%{transform:none}50%,90%{transform:translateY(-5px)}}
+@keyframes hatArm{0%,45%{transform:none}50%,90%{transform:rotate(155deg)}}
+@keyframes bowSm{0%,45%{transform:none}50%,90%{transform:translateY(1px)}}
+/* tea (윤보선) */
+.m-tea .armR{animation:sip 3s steps(3) infinite}
+@keyframes sip{0%,30%{transform:rotate(30deg)}50%,80%{transform:rotate(150deg)}100%{transform:rotate(30deg)}}
+/* flag (박정희) */
+.m-flag .armR{animation:wave .6s steps(2) infinite alternate}
+.m-flag .char{animation:bob .6s steps(2) infinite}
+/* fan (최규하) */
+.m-fan .armR{animation:fanning .5s steps(2) infinite alternate}
+@keyframes fanning{from{transform:rotate(100deg)}to{transform:rotate(135deg)}}
+/* golf (전두환) */
+.m-golf .armR{animation:swing 2s steps(5) infinite}
+@keyframes swing{0%{transform:rotate(-40deg)}40%{transform:rotate(160deg)}60%{transform:rotate(-170deg)}100%{transform:rotate(-40deg)}}
+/* torch (노태우) */
+.m-torch .armR{transform:rotate(-175deg)}
+.m-torch .flame{animation:flick .25s steps(2) infinite}
+.m-torch .char{animation:bob .3s steps(2) infinite}
+.m-torch .rider{animation:walkx 3s steps(12) infinite alternate}
+@keyframes flick{50%{transform:scaleY(1.3)}}
+/* jog (김영삼) */
+.m-jog .rider{animation:walkx 2.4s steps(12) infinite alternate}
+.m-jog .char{animation:bob .25s steps(2) infinite}
+.m-jog .armR{animation:jogA .5s steps(2) infinite alternate}
+.m-jog .armL{animation:jogA .5s steps(2) infinite alternate-reverse}
+@keyframes jogA{from{transform:rotate(-35deg)}to{transform:rotate(35deg)}}
+/* dove (김대중) */
+.m-dove .armR{animation:cheerR 1s steps(2) infinite alternate}
+.m-dove .armL{animation:cheerL 1s steps(2) infinite alternate}
+.m-dove .dovebird{animation:fly 3s steps(12) infinite}
+@keyframes cheerR{from{transform:rotate(-150deg)}to{transform:rotate(-175deg)}}
+@keyframes cheerL{from{transform:rotate(150deg)}to{transform:rotate(175deg)}}
+@keyframes fly{0%{transform:translate(4px,6px);opacity:1}100%{transform:translate(26px,-14px);opacity:0}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -167,7 +207,7 @@ footer{text-align:center;color:#9d93d6;font-size:11px;margin-top:40px;line-heigh
 <div class="wrap">
   <header>
     <div class="logo">★ 픽셀 대통령 백과 ★</div>
-    <div class="sub">제16대 노무현 ~ 제21대 이재명 · 카드를 눌러 자세히 보기 <span class="blink">▮</span></div>
+    <div class="sub">제1대 이승만 ~ 제21대 이재명 · 14명의 대통령 · 카드를 눌러 자세히 보기 <span class="blink">▮</span></div>
   </header>
 
   <div class="timeline" id="timeline"></div>
@@ -186,6 +226,206 @@ footer{text-align:center;color:#9d93d6;font-size:11px;margin-top:40px;line-heigh
 
 <script>
 window.PRESIDENTS = [
+ {
+  "id": "rsm",
+  "name": "이승만",
+  "hanja": "李承晩",
+  "order": "제1~3대",
+  "term": "1948.7 ~ 1960.4",
+  "born": "1875년 황해도 평산 출생 ~ 1965년 미국 하와이 호놀룰루에서 별세",
+  "party": "무소속 → 자유당",
+  "nickname": "우남(雩南)",
+  "summary": "대한민국 초대 대통령으로 정부 수립과 6·25 전쟁 시기를 이끌었다. 독립운동가이자 대한민국 임시정부 초대 대통령을 지냈다. 재임 중 발췌개헌·사사오입 개헌 등으로 장기 집권했으며, 1960년 3·15 부정선거에 항의한 4·19 혁명 이후 대통령직에서 물러났다.",
+  "keyEvents": [
+   "1948년 대한민국 정부 수립",
+   "1950년 농지개혁 시행",
+   "1950~1953년 6·25 전쟁",
+   "1953년 한미상호방위조약 체결",
+   "1960년 4·19 혁명 후 하야"
+  ],
+  "trivia": [
+   "미국 프린스턴 대학교에서 박사 학위를 받았어요.",
+   "부인 프란체스카 여사는 오스트리아 출신이었어요.",
+   "젊은 시절 배재학당에서 공부하고 신문을 만들기도 했어요."
+  ],
+  "signatureMove": "중절모를 살짝 들어 올리며 인사하기",
+  "narration": "이승만은 대한민국의 첫 번째 대통령이에요. 젊은 시절부터 독립운동에 나섰고, 미국에서 공부하며 박사 학위도 받았답니다. 1948년 대한민국 정부가 세워질 때 초대 대통령이 되었고, 6·25 전쟁이라는 어려운 시기를 겪었어요. 1960년 부정선거에 맞선 4·19 혁명이 일어나자 대통령직에서 물러났고, 이후 하와이에서 생을 마쳤답니다."
+ },
+ {
+  "id": "ybs",
+  "name": "윤보선",
+  "hanja": "尹潽善",
+  "order": "제4대",
+  "term": "1960.8 ~ 1962.3",
+  "born": "1897년 충청남도 아산 출생 ~ 1990년 서울 별세",
+  "party": "민주당",
+  "nickname": "해위(海葦)",
+  "summary": "윤보선은 4·19 혁명 뒤 의원내각제로 바뀐 제2공화국에서 국회 선출로 뽑힌 대통령입니다. 의원내각제였기 때문에 실제 행정은 국무총리(장면)가 맡았고, 대통령은 국가원수로서 상징적인 역할을 했습니다. 1962년 3월 물러난 뒤에는 야당 지도자로 활동했습니다.",
+  "keyEvents": [
+   "1960년 8월 국회에서 제4대 대통령으로 선출",
+   "의원내각제 아래 장면 국무총리 내각 출범",
+   "1961년 5·16 군사정변 발생",
+   "1962년 3월 대통령직 사임",
+   "이후 1963년·1967년 대통령 선거에 야당 후보로 출마"
+  ],
+  "trivia": [
+   "영국 에든버러 대학교에서 고고학을 공부했어요.",
+   "호 '해위'는 '바닷가의 갈대'라는 뜻이에요.",
+   "서울 안국동의 '윤보선 가옥'은 국가 지정 문화유산으로 남아 있어요."
+  ],
+  "signatureMove": "동그란 안경을 살짝 올리며 오래된 유물을 돋보기로 들여다보기",
+  "narration": "윤보선 대통령은 1897년 충청남도 아산에서 태어났어요. 영국 에든버러 대학교에서 고고학을 공부한 학자 같은 분이었답니다. 4·19 혁명 뒤 1960년, 국회에서 제4대 대통령으로 뽑혔어요. 그때는 의원내각제여서 나라 살림은 국무총리가 맡고, 대통령은 나라를 대표하는 역할을 했지요. 1962년에 물러난 뒤에도 야당 지도자로 오랫동안 활동했답니다."
+ },
+ {
+  "id": "pch",
+  "name": "박정희",
+  "hanja": "朴正熙",
+  "order": "제5~9대",
+  "term": "1963.12 ~ 1979.10",
+  "born": "1917년 경상북도 선산군(현 구미시) 출생 ~ 1979년 서거",
+  "party": "민주공화당",
+  "nickname": "산업화 시대의 대통령",
+  "summary": "1961년 5·16 군사정변 뒤 국가재건최고회의 의장을 지냈고, 1963년 대통령에 당선되어 약 16년간 재임했습니다. 경제개발 5개년 계획 등으로 급속한 산업화와 경제성장을 이끌었다는 평가를 받는 한편, 유신체제 등 장기 집권과 민주주의·인권 제한에 대한 비판도 받습니다. 1979년 10·26 사건으로 서거했습니다.",
+  "keyEvents": [
+   "경제개발 5개년 계획 추진",
+   "1965년 한일 국교 정상화",
+   "1970년 경부고속도로 개통",
+   "1970년 새마을운동 시작",
+   "1972년 10월 유신 선포"
+  ],
+  "trivia": [
+   "대통령이 되기 전 경북 문경에서 초등학교 교사로 일한 적이 있어요.",
+   "막걸리를 즐겨 마신 것으로 알려져 있어요.",
+   "새마을운동 노래 '새마을 노래'를 직접 작사·작곡했다고 전해져요."
+  ],
+  "signatureMove": "선글라스를 쓰고 밀짚모자를 쓴 채 논에서 모내기를 하는 동작",
+  "narration": "박정희 대통령은 1917년 경상북도 선산에서 태어났어요. 1961년 5·16 군사정변 이후 1963년 대통령이 되어 약 16년 동안 나라를 이끌었답니다. 재임 중 경부고속도로를 만들고 새마을운동을 펼치는 등 빠른 경제성장을 추진했어요. 한편 유신체제로 장기 집권하며 민주주의를 제한했다는 비판도 받고 있지요. 1979년 10·26 사건으로 세상을 떠났고, 오늘날까지 다양한 평가가 함께하는 인물이에요."
+ },
+ {
+  "id": "cgh",
+  "name": "최규하",
+  "hanja": "崔圭夏",
+  "order": "제10대",
+  "term": "1979.12 ~ 1980.8",
+  "born": "1919년 강원도 원주 출생 ~ 2006년 별세",
+  "party": "무소속",
+  "nickname": "외교관 출신 대통령",
+  "summary": "최규하는 외교관 출신으로 외무부 장관과 국무총리를 지냈습니다. 1979년 10·26 사태 뒤 대통령 권한대행을 맡았고, 같은 해 12월 통일주체국민회의에서 제10대 대통령으로 선출되었습니다. 혼란스러운 정국 속에서 약 8개월 만인 1980년 8월에 물러났습니다.",
+  "keyEvents": [
+   "1979년 10·26 사태 이후 대통령 권한대행 취임",
+   "1979년 12월 통일주체국민회의에서 제10대 대통령 선출",
+   "긴급조치 제9호 해제",
+   "1979년 12·12 군사반란 발생",
+   "1980년 5·18 민주화운동 발생 후 같은 해 8월 사임"
+  ],
+  "trivia": [
+   "일제강점기에 일본에서 공부했고, 광복 후 외교관이 되어 오랫동안 외교 분야에서 일했어요.",
+   "검소한 생활로 유명해서 오래된 선풍기와 연탄 난로를 아껴 썼다는 이야기가 전해져요.",
+   "재임 기간이 약 8개월로, 역대 대통령 가운데 짧은 편에 속해요."
+  ],
+  "signatureMove": "오래된 선풍기 앞에서 서류를 꼼꼼히 읽으며 고개를 끄덕이기",
+  "narration": "최규하 대통령은 강원도 원주에서 태어난 외교관 출신 대통령이에요. 외무부 장관과 국무총리를 지낸 뒤, 1979년 10·26 사태 이후 나라를 임시로 이끄는 권한대행을 맡았어요. 같은 해 12월 제10대 대통령으로 선출되었지만, 정국이 무척 혼란스러운 시기였어요. 결국 약 8개월 만인 1980년 8월에 대통령 자리에서 물러났어요. 평소 아주 검소하게 생활한 것으로도 잘 알려져 있답니다."
+ },
+ {
+  "id": "cdh",
+  "name": "전두환",
+  "hanja": "全斗煥",
+  "order": "제11~12대",
+  "term": "1980.9 ~ 1988.2",
+  "born": "1931년 경상남도 합천 출생 ~ 2021년 서울 사망",
+  "party": "민주정의당",
+  "nickname": "5공화국 대통령",
+  "summary": "육군 장교 출신으로 1979년 12·12 군사반란과 1980년 5·17 비상계엄 확대를 거쳐 권력을 잡고, 간접선거로 제11·12대 대통령이 되었습니다. 재임 중 물가 안정과 경제 성장이 있었지만, 5·18 민주화운동 유혈 진압 등으로 퇴임 후 1997년 대법원에서 반란·내란 등의 혐의로 무기징역이 확정되었고 같은 해 특별사면되었습니다.",
+  "keyEvents": [
+   "1979년 12·12 군사반란, 1980년 5·17 비상계엄 전국 확대",
+   "1980년 5·18 광주 민주화운동 무력 진압",
+   "1982년 야간 통행금지 해제, 1983년 교복·두발 자율화 시행",
+   "1986 서울 아시안게임 개최 및 1988 서울 올림픽 유치(1981)",
+   "1987년 6월 민주항쟁 이후 6·29 선언으로 대통령 직선제 개헌"
+  ],
+  "trivia": [
+   "경남 합천 출신으로 육군사관학교 11기 졸업생이에요.",
+   "육사 시절 축구부 골키퍼로 활동했다고 알려져 있어요.",
+   "그의 재임 시절 프로야구(1982)와 프로축구(1983)가 출범했어요."
+  ],
+  "signatureMove": "군인 출신답게 똑바로 서서 힘차게 거수경례하기",
+  "narration": "전두환 전 대통령은 1931년 경상남도 합천에서 태어난 군인 출신 정치인이에요. 1979년 12·12 군사반란과 이듬해 비상계엄 확대를 거쳐 권력을 잡았고, 1980년부터 1988년까지 제11대와 제12대 대통령을 지냈어요. 재임 중 야간 통행금지가 풀리고 프로야구가 시작되었으며, 서울 올림픽도 유치되었답니다. 하지만 5·18 민주화운동 진압 등으로 퇴임 후 재판을 받아 1997년 무기징역이 확정되었고, 같은 해 특별사면되었어요. 그는 2021년 세상을 떠났습니다."
+ },
+ {
+  "id": "rtw",
+  "name": "노태우",
+  "hanja": "盧泰愚",
+  "order": "제13대",
+  "term": "1988.2 ~ 1993.2",
+  "born": "1932년 경상북도 달성군 공산면(현 대구광역시 동구) 출생 ~ 2021년 사망",
+  "party": "민주정의당 → 민주자유당",
+  "nickname": "보통사람",
+  "summary": "노태우는 육군 장성 출신으로, 1987년 6·29 선언을 발표한 뒤 직선제로 치러진 대통령 선거에서 당선되었습니다. 재임 중에는 서울 올림픽을 개최하고 북방외교를 펼쳐 소련·중국과 수교했습니다. 퇴임 후 12·12 군사반란과 비자금 사건으로 기소되어 대법원에서 유죄 판결을 받았고, 1997년 특별사면되었습니다.",
+  "keyEvents": [
+   "1988 서울 올림픽 개최",
+   "북방외교 추진: 1990년 소련 수교, 1992년 중국 수교",
+   "1991년 남북한 유엔 동시 가입",
+   "1991년 남북기본합의서 채택",
+   "1990년 3당 합당으로 민주자유당 출범"
+  ],
+  "trivia": [
+   "선거 때 스스로를 '보통사람'이라고 부르며 친근한 이미지를 내세웠어요.",
+   "육군사관학교 11기로, 같은 기수 동기 중에 전두환 전 대통령이 있었어요.",
+   "서울 올림픽 개막식에서 대통령으로서 개회를 선언했어요."
+  ],
+  "signatureMove": "엄지를 척 들고 \"보통사람입니다!\" 하며 환하게 웃기",
+  "narration": "이번에 만나볼 인물은 제13대 대통령 노태우예요. 1987년 6·29 선언 뒤 국민이 직접 뽑은 선거에서 당선되었고, 자신을 '보통사람'이라고 불렀어요. 재임 중에는 1988년 서울 올림픽이 열렸고, 소련·중국과 수교하는 북방외교를 펼쳤답니다. 1991년에는 남북한이 함께 유엔에 가입했어요. 퇴임 뒤에는 12·12 사건과 비자금 문제로 재판을 받아 유죄가 확정되었고, 이후 특별사면되었어요."
+ },
+ {
+  "id": "kys",
+  "name": "김영삼",
+  "hanja": "金泳三",
+  "order": "제14대",
+  "term": "1993.2 ~ 1998.2",
+  "born": "1927년 경상남도 거제 출생 ~ 2015년 별세",
+  "party": "민주자유당 → 신한국당",
+  "nickname": "YS",
+  "summary": "김영삼은 32년 만에 처음으로 군인 출신이 아닌 민간인 대통령이 되어 '문민정부'를 열었습니다. 금융실명제를 도입하고 하나회를 정리하는 등 여러 개혁을 추진했습니다. 임기 말인 1997년에는 외환위기를 맞아 IMF에 구제금융을 요청했습니다.",
+  "keyEvents": [
+   "금융실명제 전격 실시 (1993)",
+   "군 사조직 하나회 해체",
+   "공직자 재산 공개 제도화",
+   "OECD 가입 (1996)",
+   "외환위기와 IMF 구제금융 요청 (1997)"
+  ],
+  "trivia": [
+   "26세에 국회의원에 당선되어 역대 최연소 국회의원 기록을 세웠어요.",
+   "아침 조깅을 아주 좋아해서 청와대에서도 매일 달렸대요.",
+   "'닭의 목을 비틀어도 새벽은 온다'는 말로 유명해요."
+  ],
+  "signatureMove": "조깅복 차림으로 힘차게 아침 조깅을 하며 손을 흔든다",
+  "narration": "김영삼 대통령은 경상남도 거제에서 태어나 스물여섯 살에 최연소 국회의원이 되었어요. 1993년 제14대 대통령이 되며 '문민정부' 시대를 열었답니다. 재임 중 금융실명제를 도입하고 공직자 재산 공개를 제도화하는 등 많은 개혁을 펼쳤어요. 1996년에는 OECD에 가입했지만, 1997년 외환위기로 큰 어려움을 겪기도 했어요. 매일 아침 조깅을 즐긴 부지런한 대통령으로도 기억되고 있답니다."
+ },
+ {
+  "id": "kdj",
+  "name": "김대중",
+  "hanja": "金大中",
+  "order": "제15대",
+  "term": "1998.2 ~ 2003.2",
+  "born": "1924년 전라남도 신안군 하의도 출생 ~ 2009년 서거",
+  "party": "새정치국민회의 (이후 새천년민주당)",
+  "nickname": "DJ",
+  "summary": "김대중은 대한민국 제15대 대통령으로, 선거를 통해 여야 간 정권 교체를 처음으로 이룬 대통령이에요. 외환위기 극복에 힘썼고 남북 정상회담을 열었으며, 2000년 한국인 최초로 노벨평화상을 받았어요.",
+  "keyEvents": [
+   "IMF 외환위기 극복과 구조조정 추진",
+   "대북 화해협력 정책(햇볕정책) 추진",
+   "2000년 첫 남북 정상회담과 6·15 남북공동선언",
+   "2000년 노벨평화상 수상",
+   "2002 한일 월드컵 공동 개최"
+  ],
+  "trivia": [
+   "고향은 전라남도 신안의 섬, 하의도예요.",
+   "영문 이름 머리글자를 딴 'DJ'라는 별명으로 널리 불렸어요.",
+   "책 읽기를 무척 좋아해서 독서광으로 알려졌고, 초고속 인터넷 보급에도 힘썼어요."
+  ],
+  "signatureMove": "두 손을 번쩍 들어 활짝 웃으며 인사하기",
+  "narration": "이번에 소개할 인물은 제15대 대통령 김대중이에요. 전라남도의 작은 섬 하의도에서 태어났고, 'DJ'라는 별명으로 불렸답니다. 1998년 대통령이 되었을 때 나라는 외환위기라는 큰 어려움을 겪고 있었고, 국민과 함께 위기 극복에 나섰어요. 2000년에는 처음으로 남북 정상회담을 열었고, 그해 한국인 최초로 노벨평화상을 받았어요. 2002년 한일 월드컵도 그의 임기 중에 열린 큰 행사였답니다."
+ },
  {
   "id": "rmh",
   "name": "노무현",
@@ -348,7 +588,17 @@ const LOOK = {
   ysy:{wiki:'윤석열',move:'sing',moveLabel:'마이크 잡고 "아메리칸 파이" 열창',hair:'side',hairC:'#1e1e1e',suit:'#1f2a44',tie:'#d64545',skin:'#f0c29b',acc:'mic',bg:'#d6ccff',voice:{pitch:.75,rate:1.0}},
   ljm:{wiki:'이재명',move:'fist',moveLabel:'소매 걷어붙이고 "일 하자!" 주먹 불끈',hair:'side',hairC:'#222',suit:'#1d3b6b',tie:'#2f80ed',skin:'#f2c8a2',acc:'glasses',bg:'#b8f0ff',voice:{pitch:1.0,rate:1.08}},
 };
-const ORDER = ['rmh','lmb','pgh','mji','ysy','ljm'];
+Object.assign(LOOK,{
+  rsm:{wiki:'이승만',move:'hattip',moveLabel:'중절모 살짝 들어 올리며 인사',hair:'gray',hairC:'#f2f2f2',suit:'#3d3d4d',tie:'#8b1e2d',skin:'#f1cfae',acc:'fedora',bg:'#e8dcc4',voice:{pitch:.7,rate:.85}},
+  ybs:{wiki:'윤보선',move:'tea',moveLabel:'영국 신사처럼 차 한 잔 홀짝',hair:'side',hairC:'#555',suit:'#4a3b2a',tie:'#2e6b4e',skin:'#f1cba6',acc:'glasses',bg:'#f6e7c8',voice:{pitch:.8,rate:.88}},
+  pch:{wiki:'박정희',move:'flag',moveLabel:'선글라스 쓰고 새마을 깃발 흔들기',hair:'side',hairC:'#1a1a1a',suit:'#5b6b3a',tie:'#222',skin:'#e9bb92',acc:'shades',bg:'#d9f0c0',voice:{pitch:.85,rate:1.0}},
+  cgh:{wiki:'최규하',move:'fan',moveLabel:'에어컨 대신 부채로 살랑살랑',hair:'gray',hairC:'#9a9a9a',suit:'#59607a',tie:'#7a5c2e',skin:'#f1c9a4',acc:'glasses',bg:'#d8eef7',voice:{pitch:.8,rate:.85}},
+  cdh:{wiki:'전두환',move:'golf',moveLabel:'골프채 들고 나이스 샷',hair:'bald',hairC:'#333',suit:'#3a3a52',tie:'#6a1b9a',skin:'#efbf98',acc:null,bg:'#cdeccd',voice:{pitch:.8,rate:1.0}},
+  rtw:{wiki:'노태우',move:'torch',moveLabel:'88 서울올림픽 성화 들고 달리기',hair:'side',hairC:'#2a2a2a',suit:'#2c4f8a',tie:'#d64545',skin:'#f0c39b',acc:null,bg:'#fff2b8',voice:{pitch:.9,rate:.95}},
+  kys:{wiki:'김영삼',move:'jog',moveLabel:'트레이닝복 입고 새벽 조깅',hair:'side',hairC:'#3a3a3a',suit:'#2f6fd6',tie:null,skin:'#f1c49c',acc:null,bg:'#ffe1c4',voice:{pitch:.95,rate:1.1}},
+  kdj:{wiki:'김대중',move:'dove',moveLabel:'두 손 번쩍! 평화의 비둘기 날리기',hair:'gray',hairC:'#d0d0d0',suit:'#2b3d6b',tie:'#e07a2e',skin:'#f0c7a2',acc:null,bg:'#d6ecff',voice:{pitch:.75,rate:.85}},
+});
+const ORDER = ['rsm','ybs','pch','cgh','cdh','rtw','kys','kdj','rmh','lmb','pgh','mji','ysy','ljm'];
 
 /* ---------- pixel sprite builder ---------- */
 const K='#1b1640';
@@ -359,6 +609,7 @@ function hair(L){
     case 'gray': return R(2,1,12,4,c)+R(2,5,2,4,c)+R(12,5,2,4,c)+R(4,5,4,1,c);
     case 'receding': return R(3,2,10,2,c)+R(2,4,2,4,c)+R(12,4,2,4,c);
     case 'updo': return R(5,-1,6,3,c)+R(2,2,12,3,c)+R(2,5,2,7,c)+R(12,5,2,7,c)+R(3,5,5,1,c)+R(4,1,8,1,c);
+    case 'bald': return R(2,5,1,3,c)+R(13,5,1,3,c)+R(3,4,1,2,c)+R(12,4,1,2,c);
     default: return R(2,2,12,3,c)+R(2,5,2,3,c)+R(12,5,2,2,c)+R(3,5,6,1,c);
   }
 }
@@ -367,6 +618,8 @@ function head(L){
   s += hair(L);
   s += R(5,8,1,2,K)+R(10,8,1,2,K)+R(4,10,2,1,'#ff9aa8')+R(10,10,2,1,'#ff9aa8')+R(7,11,2,1,'#b0414f');
   if(L.acc==='glasses'){ const K='#7a6a9a'; s+=R(4,7,3,1,K)+R(4,9,3,1,K)+R(4,7,1,3,K)+R(6,7,1,3,K)+R(9,7,3,1,K)+R(9,9,3,1,K)+R(9,7,1,3,K)+R(11,7,1,3,K)+R(7,8,2,1,K); }
+  if(L.acc==='shades'){ s+=R(4,8,3,2,K)+R(9,8,3,2,K)+R(7,8,2,1,K)+R(4,8,1,1,'#666')+R(9,8,1,1,'#666'); }
+  if(L.acc==='fedora'){ s+=`<g class="hat">${R(1,2,14,1,'#3b3b3b')+R(3,-2,10,4,'#3b3b3b')+R(3,0,10,1,'#8b1e2d')}</g>`; }
   if(L.acc==='straw'){ s+=R(0,3,16,2,'#e8c25a')+R(3,0,10,3,'#f2d27a')+R(3,2,10,1,'#c0392b'); }
   if(L.acc==='hardhat'){ s+=R(2,0,12,4,'#ffcc00')+R(1,4,14,1,'#e6a800')+R(7,0,2,4,'#e6a800'); }
   return `<g class="head">${s}</g>`;
@@ -383,6 +636,11 @@ function arm(L,cls,x,item=''){
 function character(L){
   let rItem='';
   if(L.acc==='mic') rItem = R(13,23,3,3,'#555')+R(14,26,1,4,'#222');
+  if(L.move==='tea') rItem = R(12,22,4,3,'#fff')+R(12,22,4,1,'#a0522d')+R(16,23,1,1,'#fff')+R(11,25,6,1,'#ddd');
+  if(L.move==='flag') rItem = R(14,21,1,11,'#8b5a2b')+R(15,26,7,5,'#3a8f3a')+R(17,27,3,3,'#ffd23f');
+  if(L.move==='fan') rItem = R(11,23,6,5,'#f5e6c8')+R(11,23,6,1,K)+R(13,24,1,4,'#c9a227')+R(14,28,1,2,'#8b5a2b');
+  if(L.move==='golf') rItem = R(14,22,1,9,'#aaa')+R(14,31,3,1,'#333');
+  if(L.move==='torch') rItem = R(14,22,1,6,'#c9a227')+`<g class="flame">${R(13,28,3,3,'#ff8c00')+R(14,30,1,2,'#ffd23f')}</g>`;
   const armRx = 13;
   return `<g class="char">${arm(L,'armL',0)}${body(L)}${head(L)}${arm(L,'armR',armRx,rItem)}</g>`;
 }
@@ -402,6 +660,8 @@ function sceneSVG(id){
   if(L.move==='dozer') extra = dozer();
   if(L.move==='dog') extra = dog();
   if(L.move==='sing') extra = notes();
+  if(L.move==='dove') extra = `<g class="dovebird">${R(0,2,5,2,'#fff')+R(1,0,2,2,'#fff')+R(4,1,2,1,'#fff')+R(5,2,1,1,'#ffb000')+R(4,1,1,1,K)+R(-1,3,2,1,'#ddd')}</g>`;
+  if(L.move==='golf') extra = R(28,24,2,2,'#fff');
   if(L.move==='fist') extra = fizz()+`<text class="bubble-p" x="18" y="2" font-size="5" fill="#d64545">일 하자!</text>`;
   // viewBox 60x40, character is 16x26 at center
   return `<svg class="scene" viewBox="-22 -6 60 40" aria-hidden="true"><g class="rider" transform="translate(0,${riderY})">${inner}${extra}</g></svg>`;
@@ -521,7 +781,7 @@ function detail(id){
       <h3>한눈에 보기</h3><p class="summary">${esc(P.summary)}</p>
       <h3>주요 발자취</h3><ul class="pix">${P.keyEvents.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>
       <h3>깨알 TMI</h3><ul class="pix">${P.trivia.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>
-      <h3>시그니처 무브</h3><p class="summary">${esc(P.signatureMove)}</p>
+      <h3>시그니처 무브</h3><p class="summary">${esc(L.moveLabel)}</p>
     </div>
   </div>`;
 }
